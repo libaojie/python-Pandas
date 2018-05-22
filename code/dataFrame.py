@@ -288,6 +288,246 @@ def drop_duplicates():
     print(df)
 
 
+def fillna():
+    """
+    填空
+    :return:
+    """
+    df = pd.DataFrame([[NaN, 2, NaN, 0],
+                       [3, 4, NaN, 1],
+                       [NaN, NaN, NaN, 5],
+                       [NaN, 3, NaN, 4]], columns=list('ABCD'))
+    print(df)
+
+    # # 从左到右，替换NaN
+    # print(df.ffill(axis=1))
+    # # 从右到左，替换NaN
+    # print(df.bfill(axis=1))
+
+    # # 将NaN值改为前一个值
+    # print(df.fillna(method='ffill'))
+    # # 等价
+    # print(df.ffill())
+    # # 将NaN值改为后一个值
+    # print(df.fillna(method='bfill'))
+    # # 等价
+    # print(df.bfill())
+
+    # # 将所有NaN替换为固定值
+    # print(df.fillna('new'))
+    # # 将NaN值不同行改为不同值
+    # values = {'A': 'a_new', 'B': 'b_new', 'C': 'c_new', 'D': 'd_new'}
+    # print(df.fillna(value=values))
+    # # 修改固定数量
+    # print(df.fillna(value=values, limit=2))
+
+
+def replace():
+    """
+    替换
+    :return:
+    """
+    df = pd.DataFrame([[NaN, 3, NaN, 0],
+                       [3, 3, NaN, 3],
+                       [NaN, NaN, NaN, 5],
+                       [NaN, 3, NaN, 4]], columns=list('ABCD'))
+    print(df)
+    # 旧值
+    print(df.replace(3, 33))
+
+
+def set_index():
+    """
+    将某列作为index
+    :return:
+    """
+    df = pd.DataFrame({'month': [1, 4, 7, 10],
+                       'year': [2012, 2014, 2013, 2014],
+                       'sale': [55, 40, 84, 31]})
+    print(df)
+    # 将一列作为index
+    print(df.set_index('month'))
+    # 将几列组合作为index
+    print(df.set_index(['month', 'year']))
+    # 将index重新赋值
+    print(df.set_index([[1, 2, 3, 4], 'year']))
+
+
+def reset_index():
+    """
+    将index作为一列
+    :return:
+    """
+    # df = pd.DataFrame([('bird', 389.0),
+    #                    ('bird', 24.0),
+    #                    ('mammal', 80.5),
+    #                    ('mammal', NaN)],
+    #                   index=['falcon', 'parrot', 'lion', 'monkey'],
+    #                   columns=('class', 'max_speed'))
+    #
+    # print(df)
+    # # 将index作为列名为index的一列
+    # print(df.reset_index())
+    # # 将index去掉并改为索引
+    # print(df.reset_index(drop=True))
+
+    index = pd.MultiIndex.from_tuples([('bird', 'falcon'),
+                                       ('bird', 'parrot'),
+                                       ('mammal', 'lion'),
+                                       ('mammal', 'monkey')],
+                                      names=['class', 'name'])
+    columns = pd.MultiIndex.from_tuples([('speed', 'max'),
+                                         ('species', 'type')])
+
+    df = pd.DataFrame([(389.0, 'fly'),
+                       (24.0, 'fly'),
+                       (80.5, 'run'),
+                       (NaN, 'jump')],
+                      index=index,
+                      columns=columns)
+    print(df)
+    print('-------------------------------------')
+    print(df.reset_index(level='class'))
+    print('-------------------------------------')
+    print(df.reset_index(level='class', col_level=1))
+    print('-------------------------------------')
+    print(df.reset_index(level='class', col_level=1, col_fill='species'))
+    print('-------------------------------------')
+    print(df.reset_index(level='class', col_level=1, col_fill='genus'))
+
+
+def bool_():
+    """
+    一些判断
+    :return:
+    """
+    # df = pd.DataFrame({'age': [5, 6, NaN],
+    #                    'born': [pd.NaT, pd.Timestamp('1939-05-27'),
+    #                             pd.Timestamp('1940-04-25')],
+    #                    'name': ['Alfred', 'Batman', ''],
+    #                    'toy': [None, 'Batmobile', 'Joker']})
+    # print(df)
+    # print('-------------------------------------')
+    # # 判断是否为空
+    # print(df.isna())
+    # print('-------------------------------------')
+    # print(df.isnull())
+    # print('-------------------------------------')
+    # print(df.notna())
+    # print('-------------------------------------')
+    # print(df.notnull())
+    #
+    pass
+
+
+def isin():
+    """
+    是否包含
+    :return:
+    """
+    # df = pd.DataFrame({'A': [1, 2, 3], 'B': ['a', 'b', 'f']})
+    # print(df)
+    # print('-------------------------------------')
+    # print(df.isin([1, 3, 12, 'a']))
+
+    # df = pd.DataFrame({'A': [1, 2, 3], 'B': [1, 4, 7]})
+    # print(df)
+    # print('-------------------------------------')
+    # print(df.isin({'A': [1, 3], 'B': [4, 7, 12]}))
+
+    df = pd.DataFrame({'A': [1, 2, 3], 'B': ['a', 'b', 'f']})
+    print(df)
+    print('-------------------------------------')
+    other = pd.DataFrame({'A': [1, 3, 3, 2], 'B': ['e', 'f', 'f', 'e']})
+    print(other)
+    print('-------------------------------------')
+    print(df.isin(other))
+
+
+def where():
+    """
+    判断
+    :return:
+    """
+    df = pd.DataFrame(pd.np.arange(10).reshape(-1, 2), columns=['A', 'B'])
+    m = df % 3 == 0
+    print(df)
+    print('-------------------------------------')
+    # 条件成立不修改
+    print(df.where(m, -df))
+    print('-------------------------------------')
+    # 等价
+    print(df.where(m, -df) == pd.np.where(m, df, -df))
+    print('-------------------------------------')
+    # 取反
+    print(df.where(m, -df) == df.mask(~m, -df))
+
+# -------------------------------------------------------------------------
+# 待整理
+# ------------------------------------------------------------------------
+
+
+def duplicates_count():
+    """
+    统计重复数量
+    :return:
+    """
+    df = pd.DataFrame([[1, 2, 3, 4], [1, 2, 3, 4], [9, 10, 11, 12]],
+                      index=['00', '01', '02'],
+                      columns=['a', 'b', 'c', 'd'])
+    print(df)
+    print('-------------------------------------')
+    cols = df.columns.tolist()
+    df['count'] = 1
+
+    df = df.groupby(cols).count()
+    print(df)
+    # print('-------------------------------------')
+    # print(df.index.tolist())
+
+    # for i in df.index.tolist():
+    #     for j in i:
+    #         print(type(j))
+    print('-------------------------------------')
+    print(df.reset_index(level=['a','b','c','d']))
+    print(df.reset_index())
+
+def append():
+    """
+    相加统计
+    :return:
+    """
+    df1 = pd.DataFrame([[1, 2, 3, 4], [1, 2, 3, 4], [9, 10, 11, 12]],
+                      index=['00', '01', '02'],
+                      columns=['a', 'b', 'c', 'd'])
+
+    df2 = pd.DataFrame([[3, 2, 3, 4], [1, 3, 3, 4], [9, 10, 11, 12]],
+                      index=['00', '01', '03'],
+                      columns=['a', 'b', 'c', 'd'])
+
+    print(df1)
+    print('-------------------------------------')
+    print(df2)
+    # print('-------------------------------------')
+    # df3 = df1+df2
+    # print(df3)
+
+    # print('-------------------------------------')
+    # df4 = df1.append(df2)
+    # print(df4)
+    # print('-------------------------------------')
+    # df5 = pd.concat([df1, df2])
+    # print(df5)
+
+    print('-------------------------------------')
+    df6 = pd.concat([df1, df2], axis=1)
+    # df6 = df6.drop(df1.columns.tolist(), axis=1)
+    print(df6)
+    df6.fillna(0, inplace=True)
+    count= len(df6.columns)
+    print(df6.ix[:,0:int(count/2)]+df6.ix[:, int(count/2):count])
+
+
 # 创建
 # create_DataFrame()
 
@@ -326,4 +566,31 @@ def drop_duplicates():
 # dropna()
 
 # 去重
-drop_duplicates()
+# drop_duplicates()
+
+# 填空
+# fillna()
+
+# 替换
+# replace()
+
+# 将一列作为index
+# set_index()
+
+# 将index作为一列
+# reset_index()
+
+# 一些判断
+# bool_()
+
+# 是否包含
+# isin()
+
+# 判断
+# where()
+
+# 统计重复
+duplicates_count()
+
+# 相加统计
+# append()
