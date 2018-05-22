@@ -18,12 +18,12 @@ def create_DataFrame():
     :return:
     """
     # 直接创建
-    df = pd.DataFrame([['a0', 'b0', 'c0', 'd0'], ['a1', 'b1', 'c1', 'd1']],
-                      index=[0, 1],
-                      columns=['a', 'b', 'c', 'd'])
-
-    df = pd.DataFrame(pd.np.arange(10).reshape(2, 5))
-    print(df)
+    # df = pd.DataFrame([['a0', 'b0', 'c0', 'd0'], ['a1', 'b1', 'c1', 'd1']],
+    #                   index=[0, 1],
+    #                   columns=['a', 'b', 'c', 'd'])
+    #
+    # df = pd.DataFrame(pd.np.arange(10).reshape(2, 5))
+    # print(df)
 
     # 随机
     df = pd.DataFrame(pd.np.random.randn(3, 4), index=['00', '01', '03'],
@@ -31,15 +31,15 @@ def create_DataFrame():
 
     # 字典转化
     # 嵌套列表为一列
-    _dict = {'a': ['a0', 'a1'], 'b': ['b0', 'b1']}
-    df = pd.DataFrame(_dict)
+    # _dict = {'a': ['a0', 'a1'], 'b': ['b0', 'b1']}
+    # df = pd.DataFrame(_dict)
     # 嵌套字典为一列
-    _dict = {'a': {0: 'a0', 1: 'a1'}, 'b': {0: 'b0', 1: 'b1'}}
-    df = pd.DataFrame(_dict)
+    # _dict = {'a': {0: 'a0', 1: 'a1'}, 'b': {0: 'b0', 1: 'b1'}}
+    # df = pd.DataFrame(_dict)
     # 指定列序
     # _dict = {'col1': ['a1', 'b1'], 'col2': ['a2', 'b2']}
     # df = pd.DataFrame(_dict, columns=['col2', 'col1'])
-
+    print('-----------------------------------------------------------------------')
     print(df)
 
 
@@ -87,6 +87,7 @@ def update_val():
     # df['c'] = 'new'
     # 具体值
     # df['b'][1] = 'new'
+
     print(df)
 
 
@@ -462,6 +463,7 @@ def where():
     # 取反
     print(df.where(m, -df) == df.mask(~m, -df))
 
+
 # -------------------------------------------------------------------------
 # 待整理
 # ------------------------------------------------------------------------
@@ -489,8 +491,9 @@ def duplicates_count():
     #     for j in i:
     #         print(type(j))
     print('-------------------------------------')
-    print(df.reset_index(level=['a','b','c','d']))
+    print(df.reset_index(level=['a', 'b', 'c', 'd']))
     print(df.reset_index())
+
 
 def append():
     """
@@ -498,12 +501,12 @@ def append():
     :return:
     """
     df1 = pd.DataFrame([[1, 2, 3, 4], [1, 2, 3, 4], [9, 10, 11, 12]],
-                      index=['00', '01', '02'],
-                      columns=['a', 'b', 'c', 'd'])
+                       index=['00', '01', '02'],
+                       columns=['a', 'b', 'c', 'd'])
 
     df2 = pd.DataFrame([[3, 2, 3, 4], [1, 3, 3, 4], [9, 10, 11, 12]],
-                      index=['00', '01', '03'],
-                      columns=['a', 'b', 'c', 'd'])
+                       index=['00', '01', '03'],
+                       columns=['a', 'b', 'c', 'd'])
 
     print(df1)
     print('-------------------------------------')
@@ -524,12 +527,12 @@ def append():
     # df6 = df6.drop(df1.columns.tolist(), axis=1)
     print(df6)
     df6.fillna(0, inplace=True)
-    count= len(df6.columns)
-    print(df6.ix[:,0:int(count/2)]+df6.ix[:, int(count/2):count])
+    count = len(df6.columns)
+    print(df6.ix[:, 0:int(count / 2)] + df6.ix[:, int(count / 2):count])
 
 
 # 创建
-# create_DataFrame()
+create_DataFrame()
 
 # 增加一列
 # add_col()
@@ -590,7 +593,10 @@ def append():
 # where()
 
 # 统计重复
-duplicates_count()
+# duplicates_count()
 
 # 相加统计
 # append()
+
+# loc取值
+# loc()
