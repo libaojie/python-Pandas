@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f17c7ecd-9ab7-4e56-b22c-a56d3c3d1328" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/TestDataFarme.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/code/dataFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/dataFrame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/学习资料.docx" beforeDir="false" afterPath="$PROJECT_DIR$/doc/学习资料.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/DataFrame.docx" beforeDir="false" afterPath="$PROJECT_DIR$/doc/DataFrame.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/学习资料.docx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,17 +17,17 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/python_Pandas$dataFrame.coverage" NAME="dataFrame Coverage Results" MODIFIED="1526985549885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
-    <SUITE FILE_PATH="coverage/python_Pandas$TestDataFarme.coverage" NAME="TestDataFarme Coverage Results" MODIFIED="1526994638195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
+    <SUITE FILE_PATH="coverage/python_Pandas$TestDataFarme.coverage" NAME="TestDataFarme Coverage Results" MODIFIED="1526995299522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dataFrame.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dataFrame.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code/dataFrame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="396" column="71" lean-forward="true" selection-start-line="356" selection-end-line="396" selection-end-column="71" />
+            <state relative-caret-position="370">
+              <caret line="779" column="8" lean-forward="true" selection-start-line="779" selection-start-column="8" selection-end-line="779" selection-end-column="8" />
               <folding>
-                <element signature="e#172#191#0" expanded="true" />
+                <element signature="e#176#195#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -33,20 +36,8 @@
       <file leaf-file-name="generic.py" pinned="false" current-in-tab="false">
         <entry file="file://C:/Program Files/Anaconda3/Lib/site-packages/pandas/core/generic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4989">
-              <caret line="4372" column="32" selection-start-line="4372" selection-start-column="22" selection-end-line="4372" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestDataFarme.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/code/TestDataFarme.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37">
-              <caret line="663" lean-forward="true" selection-start-line="663" selection-end-line="663" />
-              <folding>
-                <element signature="e#176#195#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-556">
+              <caret line="5105" column="26" selection-start-line="5105" selection-start-column="16" selection-end-line="5105" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -86,8 +77,8 @@
         <option value="$PROJECT_DIR$/Main.py" />
         <option value="$PROJECT_DIR$/code/DataFrame.py" />
         <option value="$PROJECT_DIR$/code/series.py" />
-        <option value="$PROJECT_DIR$/code/dataFrame.py" />
         <option value="$PROJECT_DIR$/code/TestDataFarme.py" />
+        <option value="$PROJECT_DIR$/code/dataFrame.py" />
       </list>
     </option>
   </component>
@@ -224,16 +215,16 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.33636364" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5019516" side_tool="true" type="SLIDING" weight="0.41580757" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4980484" visible="true" weight="0.1132457" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4980484" weight="0.40343782" />
       <window_info anchor="bottom" id="Version Control" order="4" />
       <window_info anchor="bottom" id="Python Console" order="5" weight="0.33838382" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49951172" weight="0.30808082" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.46038863" visible="true" weight="0.075848304" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.46038863" visible="true" weight="0.075848304" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="right" auto_hide="true" id="Database" order="1" sideWeight="0.5156951" type="SLIDING" weight="0.20507812" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.26794744" />
-      <window_info anchor="right" content_ui="combo" x="-1074" y="-231" width="502" height="468" id="SciView" order="0" sideWeight="0.91106045" visible="true" weight="0.36327344" />
-      <window_info anchor="right" id="Structure" order="5" sideWeight="0.08893957" side_tool="true" visible="true" weight="0.36327344" />
+      <window_info anchor="right" content_ui="combo" x="-1074" y="-231" width="502" height="468" id="SciView" order="0" sideWeight="0.917088" visible="true" weight="0.36327344" />
+      <window_info anchor="right" id="Structure" order="5" sideWeight="0.082912035" side_tool="true" visible="true" weight="0.36327344" />
       <window_info anchor="bottom" x="-2560" y="-369" width="2048" height="1102" id="Debug" order="3" sideWeight="0.49658203" weight="0.38624874" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
@@ -312,7 +303,7 @@
         <state relative-caret-position="8364">
           <caret line="492" column="27" lean-forward="true" selection-start-line="492" selection-start-column="27" selection-end-line="492" selection-end-column="27" />
           <folding>
-            <element signature="e#172#191#0" expanded="true" />
+            <element signature="e#176#195#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -364,7 +355,7 @@
         <state relative-caret-position="7769">
           <caret line="457" column="50" lean-forward="true" selection-start-line="457" selection-start-column="50" selection-end-line="457" selection-end-column="50" />
           <folding>
-            <element signature="e#172#191#0" expanded="true" />
+            <element signature="e#176#195#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -402,7 +393,7 @@
         <state relative-caret-position="7616">
           <caret line="448" column="6" lean-forward="true" selection-start-line="448" selection-start-column="6" selection-end-line="448" selection-end-column="6" />
           <folding>
-            <element signature="e#172#191#0" expanded="true" />
+            <element signature="e#176#195#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -433,7 +424,7 @@
         <state relative-caret-position="4913">
           <caret line="289" lean-forward="true" selection-start-line="289" selection-end-line="289" />
           <folding>
-            <element signature="e#172#191#0" expanded="true" />
+            <element signature="e#176#195#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -464,7 +455,7 @@
         <state relative-caret-position="4641">
           <caret line="273" selection-start-line="273" selection-end-line="287" selection-end-column="13" />
           <folding>
-            <element signature="e#172#191#0" expanded="true" />
+            <element signature="e#176#195#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -523,25 +514,25 @@
     </entry>
     <entry file="file://C:/Program Files/Anaconda3/Lib/site-packages/pandas/core/generic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4989">
-          <caret line="4372" column="32" selection-start-line="4372" selection-start-column="22" selection-end-line="4372" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code/dataFrame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="396" column="71" lean-forward="true" selection-start-line="356" selection-end-line="396" selection-end-column="71" />
-          <folding>
-            <element signature="e#172#191#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-556">
+          <caret line="5105" column="26" selection-start-line="5105" selection-start-column="16" selection-end-line="5105" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/code/TestDataFarme.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="663" lean-forward="true" selection-start-line="663" selection-end-line="663" />
+        <state relative-caret-position="229">
+          <caret line="708" column="51" selection-end-line="803" />
+          <folding>
+            <element signature="e#176#195#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/dataFrame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="779" column="8" lean-forward="true" selection-start-line="779" selection-start-column="8" selection-end-line="779" selection-end-column="8" />
           <folding>
             <element signature="e#176#195#0" expanded="true" />
           </folding>
