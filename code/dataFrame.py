@@ -10,6 +10,7 @@
 
 import pandas as pd
 from numpy import NaN
+from numpy.random.mtrand import randn
 
 
 def create():
@@ -57,7 +58,7 @@ def create():
     print(df7)
 
 
-def attribute():
+def attribute1():
     """
     属性
     :return:
@@ -87,6 +88,19 @@ def attribute():
     print('\n---------------------------------------------------------------------------------------------------------')
     # 转置
     print(df.T)
+
+
+def attribute2():
+    df = pd.DataFrame(pd.np.random.randn(50, 4), columns=list('ABCD'))
+    print(df)
+    print('\n前5行-----------------------------------')
+    print(df.head(5))
+    print('\n后5行-----------------------------------')
+    print(df.tail(5))
+    print('\n随机5行-----------------------------------')
+    print(df.sample(n=5))
+    print('\n随机抽10%-----------------------------------')
+    print(df.sample(frac=0.1, replace=True))
 
 
 def get_value():
@@ -187,10 +201,10 @@ def add():
     :return:
     """
     df1 = pd.DataFrame([1, 1, 1, pd.np.nan], index=['a', 'b', 'c', 'd'],
-                     columns=['one'])
+                       columns=['one'])
     df2 = pd.DataFrame(dict(one=[1, pd.np.nan, 1, pd.np.nan],
-                          two=[pd.np.nan, 2, pd.np.nan, 2]),
-                     index=['a', 'b', 'd', 'e'])
+                            two=[pd.np.nan, 2, pd.np.nan, 2]),
+                       index=['a', 'b', 'd', 'e'])
     print('\ndf1-----------------------------------')
     print(df1)
     print('\ndf2-----------------------------------')
@@ -219,7 +233,7 @@ def append():
     print('\nadd--------------------------------------')
     print(df1.add(df2, fill_value=0))
     print('\n+--------------------------------------')
-    print(df1+df2)
+    print(df1 + df2)
     print('\nappend--------------------------------------')
     print(df1.append(df2))
     print('\nappend--------------------------------------')
@@ -465,6 +479,18 @@ def sort_value():
     # 降序排
     print(df.sort_values(by='a', ascending=False))
 
+    print('\n-------------------------------------')
+    df = pd.DataFrame({
+        'col1': ['A', 'A', 'B', pd.np.nan, 'D', 'C'],
+        'col2': [2, 1, 9, 8, 7, 4],
+        'col3': [0, 1, 9, 4, 2, 3],
+    })
+    print(df)
+    print('\n-------------------------------------')
+    print(df.sort_values(by='col1', ascending=False))
+    print('\n-------------------------------------')
+    print(df.sort_values(by='col1', ascending=False, na_position='first'))
+
 
 def sort_index():
     """
@@ -500,6 +526,19 @@ def rename():
     # 行换名
     df.rename({'01': '001', '02': '002'}, axis='index', inplace=True)
     print(df)
+
+
+def rename_axis():
+    """
+
+    :return:
+    """
+    df = pd.DataFrame({"A": [1, 2, 3], "B": [4, 5, 6]})
+    print(df)
+    print('\n行索引取名-------------------------------------')
+    print(df.rename_axis("foo"))
+    print('\n列索引取名-------------------------------------')
+    print(df.rename_axis("bar", axis="columns"))
 
 
 def isin1():
@@ -691,20 +730,21 @@ def groupby():
                       columns=['a', 'b', 'c', 'd'])
     print(df)
     print('\n-------------------------------------')
-    print(df.groupby(by='a').count())
-    print('\n-------------------------------------')
-    print(df.groupby(by='a').mean())
-    print('\n-------------------------------------')
-    print(df.groupby(by=['a', 'b', 'c', 'd']).count())
-    print('\n-------------------------------------')
-    print(df.groupby(by=['a', 'b', 'c'])['d'].mean())
-    print('\n统计数量-------------------------------------')
-    col = df.columns.tolist()
-    df['count'] = 1
-    df = df.groupby(col).count()
-    print(df)
-    print('\n拆解index-------------------------------------')
-    print(df.reset_index())
+    # print(df.groupby(by='a').count())
+    # print('\n-------------------------------------')
+    # print(df.groupby(by='a').mean())
+    # print('\n-------------------------------------')
+    # print(df.groupby(by=['a', 'b', 'c', 'd']).count())
+    # print('\n-------------------------------------')
+    # print(df.groupby(by=['a', 'b', 'c'])['d'].mean())
+    # print('\n统计数量-------------------------------------')
+    # col = df.columns.tolist()
+    # df['count'] = 1
+    # df = df.groupby(col).count()
+    # print(df)
+    # print('\n拆解index-------------------------------------')
+    # print(df.reset_index())
+
 
 
 def shape():
@@ -746,8 +786,526 @@ def set_axis():
     print(df.set_axis(['I', 'II', 'III'], axis=0, inplace=False))
 
 
+def pop():
+    """
+    剔除
+    :return:
+    """
+    df = pd.DataFrame([[1, 2, 3, 4], [1, 2, 3, 4], [9, 10, 11, 12]],
+                      index=['00', '01', '02'],
+                      columns=['a', 'b', 'c', 'd'])
+    print(df)
+    print('\n-------------------------------------')
+    print(df.pop('b'))
+    print('\n-------------------------------------')
+    print(df)
+
+
+def squeeze():
+    df = pd.DataFrame(pd.np.random.randn(3, 4), index=['03', '02', '01'],
+                      columns=['d', 'b', 'a', 'c'])
+    print(df)
+    print('\n-------------------------------------')
+    print(df.squeeze(axis=0))
+
+
+def equals():
+    """
+    是否相等
+    :return:
+    """
+    df1 = pd.DataFrame([[1, 2, 3, 4], [1, 2, 3, 4]],
+                       index=['00', '01'],
+                       columns=['a', 'b', 'c', 'd'])
+    df2 = pd.DataFrame([[1, 2, 3, 4], [1, 2, 3, 4]],
+                       index=['00', '01'],
+                       columns=['a', 'b', 'c', 'd'])
+    print('\ndf1-------------------------------------')
+    print(df1)
+    print('\ndf2-------------------------------------')
+    print(df2)
+    print('\n每个值比较-------------------------------------')
+    print(df1 == df2)
+    print('\n所有值比较-------------------------------------')
+    print(df1.equals(df2))
+
+
+def keys():
+    df = pd.DataFrame([[1, 2, 3, 4], [1, 2, 3, 4]],
+                      index=['00', '01'],
+                      columns=['a', 'b', 'c', 'd'])
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\nkeys-------------------------------------')
+    print(type(df.keys))
+    print(df.keys)
+    print('\niteritems-------------------------------------')
+    print(type(df.iteritems))
+    for i in df.iteritems:
+        print(i)
+
+
+def empty():
+    """
+    是否为空
+    :return:
+    """
+    df1 = pd.DataFrame({'A': []})
+    print('\ndf1-------------------------------------')
+    print(df1)
+    print('\ndf1.empty-------------------------------------')
+    print(df1.empty)
+
+    print('\ndf2-------------------------------------')
+    df2 = pd.DataFrame({'A': [pd.np.nan]})
+    print(df2)
+    print('\ndf2.empty-------------------------------------')
+    print(df2.empty)
+    print('\n-------------------------------------')
+    print(df2.dropna().empty)
+    pass
+
+
+def to_json():
+    """
+    转化为json
+    :return:
+    """
+    df = pd.DataFrame([['a', 'b'], ['c', 'd']], index=['row 1', 'row 2'], columns=['col 1', 'col 2'])
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\nindex-------------------------------------')
+    print(df.to_json(orient='index'))
+    print('\nrecords-------------------------------------')
+    print(df.to_json(orient='records'))
+    print('\ntable-------------------------------------')
+    print(df.to_json(orient='table'))
+
+
+def take():
+    df = pd.DataFrame([('falcon', 'bird', 389.0),
+                       ('parrot', 'bird', 24.0),
+                       ('lion', 'mammal', 80.5),
+                       ('monkey', 'mammal', pd.np.nan)],
+                      columns=('name', 'class', 'max_speed'),
+                      index=[0, 2, 3, 1])
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\n-------------------------------------')
+    print(df.take([0, 3]))
+    print('\n-------------------------------------')
+    print(df.take([1, 2], axis=1))
+    print('\n-------------------------------------')
+    print(df.take([-1, -2]))
+
+
+def xs():
+    # 只能get不能set
+    df = pd.DataFrame([['a', 'b'], ['c', 'd']], index=['row 1', 'row 2'], columns=['col 1', 'col 2'])
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\n-------------------------------------')
+    print(type(df.xs('row 1')))
+    print(df.xs('row 1'))
+    print('\n-------------------------------------')
+    print(type(df.xs('col 1', axis=1)))
+    print(df.xs('col 1', axis=1))
+
+
+def add_prefix():
+    """
+    列索引加值
+    :return:
+    """
+    df = pd.DataFrame([['a', 'b'], ['c', 'd']], index=['row1', 'row2'], columns=['col1', 'col2'])
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\n前缀-------------------------------------')
+    print(df.add_prefix('new'))
+    print('\n后缀-------------------------------------')
+    print(df.add_suffix('new'))
+
+
+def reindex1():
+    """
+    保留或新添索引
+    :return:
+    """
+    index = ['Firefox', 'Chrome', 'Safari', 'IE10', 'Konqueror']
+    df = pd.DataFrame({
+        'http_status': [200, 200, 404, 404, 301],
+        'response_time': [0.04, 0.02, 0.07, 0.08, 1.0]},
+        index=index)
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\n处理行索引-------------------------------------')
+    new_index = ['Safari', 'Iceweasel', 'Comodo Dragon', 'IE10',
+                 'Chrome']
+    print(df.reindex(new_index))
+    print('\n新行填充0-------------------------------------')
+    print(df.reindex(new_index, fill_value=0))
+    print('\n新行填充Nan-------------------------------------')
+    print(df.reindex(new_index, fill_value='missing'))
+
+    print('\n处理列-------------------------------------')
+    print(df.reindex(columns=['http_status', 'user_agent']))
+    print('\n-------------------------------------')
+    print(df.reindex(['http_status', 'user_agent'], axis="columns"))
+
+
+def reindex2():
+    date_index = pd.date_range('1/1/2010', periods=6, freq='D')
+    df2 = pd.DataFrame({"prices": [100, 101, pd.np.nan, 100, 89, 88]},
+                       index=date_index)
+    print('\ndf-------------------------------------')
+    print(df2)
+
+    print('\n-------------------------------------')
+    date_index2 = pd.date_range('12/29/2009', periods=10, freq='D')
+    print(df2.reindex(date_index2))
+    print('\n-------------------------------------')
+    print(df2.reindex(date_index2, method='bfill'))
+
+
+def filter():
+    """
+    过滤
+    :return:
+    """
+    df = pd.DataFrame([[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+                      index=['mouse', 'rabbit', 'rt'],
+                      columns=['one', 'two', 'three'])
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\nitems-------------------------------------')
+    print(df.filter(items=['one', 'three']))
+    print('\nregex-------------------------------------')
+    print(df.filter(regex='e$', axis=1))
+    print('\nlike-------------------------------------')
+    print(df.filter(like='bbi', axis=0))
+
+
+def transform():
+    df = pd.DataFrame(pd.np.random.randn(6, 3), columns=['A', 'B', 'C'], index=pd.date_range('1/1/2000', periods=6))
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\n-------------------------------------')
+    df.iloc[2:4] = pd.np.nan
+    print('\n-------------------------------------')
+    print(df)
+    print('\n-------------------------------------')
+    print(df.transform(lambda x: (x - x.mean()) / x.std()))
+
+
+def math1():
+    """
+    数学统计
+    :return:
+    """
+    df = pd.DataFrame([[1, 2, NaN, 4], [5, NaN, NaN, 12]],
+                      index=['00', '01'],
+                      columns=['a', 'b', 'c', 'd'])
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\n求列和-------------------------------------')
+    print(df.sum())
+    print('\n求行和-------------------------------------')
+    print(df.sum(axis=1))
+
+    print('\n求累加-------------------------------------')
+    print(df.cumsum())
+
+    print('\n求最大值所在行-------------------------------------')
+    print(df.idxmax())
+    print('\n求最大值所在列-------------------------------------')
+    print(df.idxmax(axis=1))
+
+
+def math2():
+    df = pd.DataFrame([[1, 2, NaN, 4], [5, NaN, NaN, 12], [1, 2, NaN, 4]],
+                      index=['00', '01', '02'],
+                      columns=['a', 'b', 'c', 'd'])
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\n非Nan数量-------------------------------------')
+    print(df.count())
+    print('\n-------------------------------------')
+    print(df.count(axis=1))
+    print('\n单列去重-------------------------------------')
+    print(df['a'].unique())
+    print('\n单列统计数量-------------------------------------')
+    print(df['a'].value_counts())
+
+
+def items():
+    df = pd.DataFrame([[1, 2, NaN, 4], [5, NaN, NaN, 12], [1, 2, NaN, 4]],
+                      index=['00', '01', '02'],
+                      columns=['a', 'b', 'c', 'd'])
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\nitems-------------------------------------')
+    for col_key, col_val in df.items():
+        for row_key, row_val in col_val.items():
+            print(' [{0},{1}]:{2}'.format(col_key, row_key, row_val))
+
+    print('\niteritems-------------------------------------')
+    for col_key, col_val in df.iteritems():
+        for row_key, row_val in col_val.iteritems():
+            print('[{0},{1}]:{2}'.format(col_key, row_key, row_val))
+
+
+def to_dict():
+    df = pd.DataFrame([[1, 2, NaN, 4], [5, NaN, NaN, 12]],
+                      index=['00', '01'],
+                      columns=['a', 'b', 'c', 'd'])
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\n-------------------------------------')
+    print(df.to_dict())
+    print('\nseries-------------------------------------')
+    print(df.to_dict('series'))
+    print('\nsplit-------------------------------------')
+    print(df.to_dict('split'))
+    print('\nrecords-------------------------------------')
+    print(df.to_dict('records'))
+    print('\nindex-------------------------------------')
+    print(df.to_dict('index'))
+    pass
+
+
+def query():
+    df = pd.DataFrame(randn(10, 2), columns=list('ab'))
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\n-------------------------------------')
+    print(df.query('a > b'))
+    print('\n-------------------------------------')
+    print(df[df.a > df.b])
+
+
+def eval():
+    df = pd.DataFrame(randn(10, 2), columns=list('ab'))
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\n-------------------------------------')
+    print(df.eval('a + b'))
+    print('\n-------------------------------------')
+    print(df.eval('c = a + b'))
+
+
+def select_dtypes():
+    df = pd.DataFrame({'a': pd.np.random.randn(6).astype('f4'),
+                       'b': [True, False] * 3,
+                       'c': [1.0, 2.0] * 3,
+                       'd': [100] * 6})
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\n-------------------------------------')
+    print(df.select_dtypes(include='bool'))
+    print('\n-------------------------------------')
+    print(df.select_dtypes(include=['float64']))
+    print('\n-------------------------------------')
+    print(df.select_dtypes(exclude=['floating']))
+    pass
+
+
+def assign():
+    df = pd.DataFrame({'A': range(1, 6), 'B': pd.np.random.randn(5)})
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\n-------------------------------------')
+    print(df.assign(ln_A=lambda x: pd.np.log(x.A)))
+
+
+def nlargest():
+    df = pd.DataFrame({'a': [1, 10, 8, 11, -1],
+                       'b': list('abdce'),
+                       'c': [1.0, 2.0, pd.np.nan, 3.0, 4.0]})
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\n以某列值降序取前3个-------------------------------------')
+    print(df.nlargest(3, 'a'))
+    print(df.nsmallest(3, 'a'))
+
+
+def combine():
+    df1 = pd.DataFrame({'A': [0, 0], 'B': [4, 4]})
+    df2 = pd.DataFrame({'A': [1, 1], 'B': [3, 3]})
+    print('\n-------------------------------------')
+    print(df1)
+    print('\n-------------------------------------')
+    print(df2)
+    print('\n-------------------------------------')
+    print(df1.combine(df2, lambda s1, s2: s1 if s1.sum() < s2.sum() else s2))
+
+
+def combine_first():
+    df1 = pd.DataFrame([[1, pd.np.nan], [NaN, 3]])
+    df2 = pd.DataFrame([[3, 4, 10], [5, NaN, NaN], [6, 7, 9]])
+    print('\n-------------------------------------')
+    print(df1)
+    print('\n-------------------------------------')
+    print(df2)
+    print('\n-------------------------------------')
+    print(df1.combine_first(df2))
+
+
+def update1():
+    df1 = pd.DataFrame({'A': [1, 2, 3],
+                        'B': [400, 500, 600]})
+    df2 = pd.DataFrame({'B': [4, 5, 6],
+                        'C': [7, 8, 9]})
+    print('\n-------------------------------------')
+    print(df1)
+    print('\n-------------------------------------')
+    print(df2)
+    print('\n-------------------------------------')
+    df1.update(df2)
+    print(df1)
+
+
+def update2():
+    df1 = pd.DataFrame({'A': ['a', 'b', 'c'], 'B': ['x', 'y', 'z']})
+    df2 = pd.DataFrame({'B': ['d', 'e', 'f', 'g', 'h', 'i']})
+    df3 = pd.DataFrame({'B': [4, pd.np.nan, 6]})
+    df4 = pd.DataFrame({'B': ['d', 'e']}, index=[1, 2])
+    print('\ndf1-------------------------------------')
+    print(df1)
+    print('\ndf2-------------------------------------')
+    print(df2)
+    print('\n-------------------------------------')
+    df1.update(df2)
+    print(df1)
+    print('\ndf3-------------------------------------')
+    print(df3)
+    print('\n-------------------------------------')
+    df1.update(df3)
+    print(df1)
+    print('\ndf4-------------------------------------')
+    print(df4)
+    print('\n-------------------------------------')
+    df1.update(df4)
+    print(df1)
+
+
+def pivot():
+    df = pd.DataFrame({'foo': ['one', 'one', 'one', 'two', 'two', 'two'],
+                       'bar': ['A', 'B', 'C', 'A', 'B', 'C'],
+                       'baz': [1, 2, 3, 4, 5, 6]})
+    print('\n-------------------------------------')
+    print(df)
+    print('\n-------------------------------------')
+    print(df.pivot(index='foo', columns='bar', values='baz'))
+    print('\n-------------------------------------')
+    print(df.pivot(index='foo', columns='bar')['baz'])
+
+
+def stack():
+    df = pd.DataFrame([[1, 2], [5, NaN]],
+                      index=['00', '01'],
+                      columns=['a', 'b'])
+    print('\n-------------------------------------')
+    print(df)
+    print('\n-------------------------------------')
+    print(df.stack())
+
+
+def applymap():
+    df = pd.DataFrame(pd.np.random.randn(3, 3))
+    print('\n-------------------------------------')
+    print(df)
+    print('\n-------------------------------------')
+    df = df.applymap(lambda x: '%.2f' % x)
+    print(df)
+
+
+def join():
+    df1 = pd.DataFrame({'key': ['K0', 'K1', 'K2', 'K3', 'K4', 'K5'],
+                        'A': ['A0', 'A1', 'A2', 'A3', 'A4', 'A5']})
+    df2 = pd.DataFrame({'key': ['K0', 'K1', 'K2'],
+                        'B': ['B0', 'B1', 'B2']})
+    print('\ndf1-------------------------------------')
+    print(df1)
+    print('\ndf2-------------------------------------')
+    print(df2)
+    print('\n-------------------------------------')
+    print(df1.join(df2, lsuffix='_caller', rsuffix='_other'))
+    print('\n-------------------------------------')
+    print(df1.set_index('key').join(df2.set_index('key')))
+    print('\n-------------------------------------')
+    print(df1.join(df2.set_index('key'), on='key'))
+
+
+def nunique():
+    df = pd.DataFrame([['a0', 'b0', 'c0', 'd0'], ['a1', 'b0', 'c1', 'd1'], ['a2', 'b2', 'c0', 'd2']],
+                      index=['00', '01', '02'],
+                      columns=['a', 'b', 'c', 'd'])
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\nnunique-------------------------------------')
+    print(df.nunique())
+    print('\ncount-------------------------------------')
+    print(df.count())
+    print('\nmode-------------------------------------')
+    print(df.mode())
+
+
+
+
 def run():
     print('\n---------------------------------------------------------------------------------------------------------')
+    nunique()
+    # join()
+    # applymap()
+    # stack()
+    # pivot()
+    # update1()
+    # update2()
+
+    # combine_first()
+    # combine()
+    # nlargest()
+    # assign()
+    # select_dtypes()
+    # eval()
+
+    # query()
+    # to_dict()
+
+    # items()
+
+    # math1()
+    # math2()
+
+    # transform()
+    # filter()
+
+    # reindex1()
+    # reindex2()
+
+    # add_prefix()
+
+    # xs()
+
+    # take
+    # take()
+
+    # 转化json
+    # to_json()
+
+    # 判断是否为空
+    # empty()
+
+    # keys()
+
+    # 是否相等
+    # equals()
+
+    # squeeze
+    # squeeze()
+
+    # pop
+    # pop()
 
     # 设置索引
     # set_axis()
@@ -758,7 +1316,8 @@ def run():
     # create()
 
     # 属性
-    # attribute()
+    # attribute1()
+    # attribute2()
 
     # 切片
     # get_value()
@@ -805,6 +1364,7 @@ def run():
 
     # 换名
     # rename()
+    # rename_axis()
 
     # 包含
     # isin1()
