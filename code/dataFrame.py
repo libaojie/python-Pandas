@@ -312,16 +312,6 @@ def dropna_row():
     print('\n--------------------------------------')
     # 删除某些列全部为NaN
     print(df.dropna(subset=['a', 'd'], how='all'))
-
-
-    # # None的效果与NaN等同
-    # df = pd.DataFrame([[1, '', 3, 4], [5, 6, 7, None], [9, 10, None, None], [None, None, None, None]],
-    #                   index=['00', '01', '02', '03'],
-    #                   columns=['a', 'b', 'c', 'd'])
-    # print(df)
-    # print(df.dropna())
-    # print(df.dropna(axis=1))
-
     pass
 
 
@@ -717,9 +707,53 @@ def groupby():
     print(df.reset_index())
 
 
+def shape():
+    """
+    一些属性
+    :return:
+    """
+
+    df = pd.DataFrame([[1, 2, 3, 4], [1, 2, 3, 4], [9, 10, 11, 12]],
+                      index=['00', '01', '02'],
+                      columns=['a', 'b', 'c', 'd'])
+    print(df)
+    print('\nshape-------------------------------------')
+    print(type(df.shape))
+    print(df.shape)
+    print('\naxes-------------------------------------')
+    print(type(df.axes))
+    print(df.axes)
+    print('\nndim-------------------------------------')
+    print(type(df.ndim))
+    print(df.ndim)
+    print('\nsize-------------------------------------')
+    print(type(df.size))
+    print(df.size)
+
+
+def set_axis():
+    """
+    设置索引
+    :return:
+    """
+    df = pd.DataFrame([[1, 2, 3, 4], [1, 2, 3, 4], [9, 10, 11, 12]],
+                      index=['00', '01', '02'],
+                      columns=['a', 'b', 'c', 'd'])
+    print(df)
+    print('\n列索引-------------------------------------')
+    print(df.set_axis(['I', 'II', 'III', 'IIII'], axis=1, inplace=False))
+    print('\n行索引-------------------------------------')
+    print(df.set_axis(['I', 'II', 'III'], axis=0, inplace=False))
+
 
 def run():
     print('\n---------------------------------------------------------------------------------------------------------')
+
+    # 设置索引
+    # set_axis()
+
+    # shape()
+
     # 创建
     # create()
 
