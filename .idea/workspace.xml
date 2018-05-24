@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f17c7ecd-9ab7-4e56-b22c-a56d3c3d1328" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/code/dataFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/dataFrame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/DataFrame.docx" beforeDir="false" afterPath="$PROJECT_DIR$/doc/DataFrame.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/~$taFrame.docx" beforeDir="false" />
-    </list>
+    <list default="true" id="f17c7ecd-9ab7-4e56-b22c-a56d3c3d1328" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +18,8 @@
       <file leaf-file-name="dataFrame.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code/dataFrame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="1315" column="60" lean-forward="true" selection-start-line="1315" selection-start-column="60" selection-end-line="1315" selection-end-column="60" />
+            <state relative-caret-position="264">
+              <caret line="996" lean-forward="true" selection-start-line="996" selection-end-line="996" />
               <folding>
                 <element signature="e#176#195#0" expanded="true" />
               </folding>
@@ -42,7 +38,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fillna</find>
       <find>drop_duplicates</find>
       <find>排序</find>
       <find>isin</find>
@@ -72,6 +67,7 @@
       <find>groupbygroupby</find>
       <find>groupby</find>
       <find>how</find>
+      <find>iloc</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -216,7 +212,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2567" y="-376" width="2062" height="1126" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.33636364" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5019516" side_tool="true" type="SLIDING" weight="0.41580757" />
@@ -225,7 +220,7 @@
       <window_info anchor="bottom" id="Version Control" order="4" />
       <window_info anchor="bottom" id="Python Console" order="5" weight="0.33838382" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49951172" weight="0.30808082" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.46038863" visible="true" weight="0.13972056" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.46038863" visible="true" weight="0.09031936" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="right" auto_hide="true" id="Database" order="1" sideWeight="0.5156951" type="SLIDING" weight="0.20507812" />
       <window_info anchor="right" content_ui="combo" x="-1074" y="-231" width="502" height="468" id="SciView" order="0" sideWeight="0.8704319" visible="true" weight="0.36926147" />
@@ -607,8 +602,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/code/dataFrame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="1315" column="60" lean-forward="true" selection-start-line="1315" selection-start-column="60" selection-end-line="1315" selection-end-column="60" />
+        <state relative-caret-position="264">
+          <caret line="996" lean-forward="true" selection-start-line="996" selection-end-line="996" />
           <folding>
             <element signature="e#176#195#0" expanded="true" />
           </folding>
