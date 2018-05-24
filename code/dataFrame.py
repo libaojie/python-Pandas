@@ -746,7 +746,6 @@ def groupby():
     # print(df.reset_index())
 
 
-
 def shape():
     """
     一些属性
@@ -1250,11 +1249,75 @@ def nunique():
     print(df.mode())
 
 
+def merge1():
+    df1 = pd.DataFrame([[1, 2, 3], [10, 11, 12], [100, 110, 121]], index=['row1', 'row2', 'row3'],
+                       columns=['col1', 'col2', 'col3'])
+    df2 = pd.DataFrame([[1, 2, 4], [10, 11, 13], [100, 111, 121]], index=['row1', 'row2', 'row4'],
+                       columns=['col1', 'col2', 'col4'])
+    print('\ndf1-------------------------------------')
+    print(df1)
+    print('\ndf2-------------------------------------')
+    print(df2)
+    print('\n有相同的列 整行匹配-------------------------------------')
+    print(pd.merge(df1, df2))
+    print('\ninner-------------------------------------')
+    print(pd.merge(df1, df2, how='inner'))
+    print('\nleft-------------------------------------')
+    print(pd.merge(df1, df2, how='left'))
+    print('\nright-------------------------------------')
+    print(pd.merge(df1, df2, how='right'))
+    print('\nouter-------------------------------------')
+    print(pd.merge(df1, df2, how='outer'))
+    print('\non-------------------------------------')
+    print(pd.merge(df1, df2, on=['col1']))
+
+
+def merge_ordered():
+    df1 = pd.DataFrame({'key': ['a', 'c', 'e', 'a', 'c', 'e'],
+                        'lvalue': [1, 2, 3, 1, 2, 3],
+                        'group': ['a', 'a', 'a', 'b', 'b', 'b']})
+    df2 = pd.DataFrame({'key': ['b', 'c', 'd'],
+                        'rvalue': [1, 2, 3]})
+    print('\ndf1-------------------------------------')
+    print(df1)
+    print('\ndf2-------------------------------------')
+    print(df2)
+    print('\ndf-------------------------------------')
+    print(pd.merge_ordered(df1, df2, fill_method='ffill', left_by='group'))
+
+
+def merge_asof():
+    df1 = pd.DataFrame({'a': [1, 5, 10], 'left_val': ['a', 'b', 'c']})
+    df2 = pd.DataFrame({'a': [1, 2, 3, 6, 7], 'right_val': [1, 2, 3, 6, 7]})
+    print('\ndf1-------------------------------------')
+    print(df1)
+    print('\ndf2-------------------------------------')
+    print(df2)
+    print('\n-------------------------------------')
+    print(pd.merge_asof(df1, df2, on='a'))
+    print('\n-------------------------------------')
+    print(pd.merge_asof(df1, df2, on='a', allow_exact_matches=False))
+    print('\n-------------------------------------')
+    print(pd.merge_asof(df1, df2, on='a', direction='forward'))
+    print('\n-------------------------------------')
+    print(pd.merge_asof(df1, df2, on='a', direction='nearest'))
+
+    left = pd.DataFrame({'left_val': ['a', 'b', 'c']}, index=[1, 5, 10])
+    right = pd.DataFrame({'right_val': [1, 2, 3, 6, 7]}, index=[1, 2, 3, 6, 7])
+    print('\nleft-------------------------------------')
+    print(left)
+    print('\nright-------------------------------------')
+    print(right)
+    print('\n-------------------------------------')
+    print(pd.merge_asof(left, right, left_index=True, right_index=True))
 
 
 def run():
     print('\n---------------------------------------------------------------------------------------------------------')
-    nunique()
+    merge_asof()
+    # merge_ordered()
+    # merge1()
+    # nunique()
     # join()
     # applymap()
     # stack()
