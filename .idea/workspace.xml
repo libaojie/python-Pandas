@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f17c7ecd-9ab7-4e56-b22c-a56d3c3d1328" name="Default" comment="" />
+    <list default="true" id="f17c7ecd-9ab7-4e56-b22c-a56d3c3d1328" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/python_Pandas$dataFrame.coverage" NAME="dataFrame Coverage Results" MODIFIED="1527123938766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
+    <SUITE FILE_PATH="coverage/python_Pandas$dataFrame.coverage" NAME="dataFrame Coverage Results" MODIFIED="1527649987547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
     <SUITE FILE_PATH="coverage/python_Pandas$TestDataFarme.coverage" NAME="TestDataFarme Coverage Results" MODIFIED="1526995299522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
   </component>
   <component name="FileEditorManager">
@@ -18,8 +20,8 @@
       <file leaf-file-name="dataFrame.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code/dataFrame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="996" lean-forward="true" selection-start-line="996" selection-end-line="996" />
+            <state relative-caret-position="270">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
               <folding>
                 <element signature="e#176#195#0" expanded="true" />
               </folding>
@@ -91,10 +93,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-2445" />
-    <option name="y" value="-179" />
-    <option name="width" value="1945" />
-    <option name="height" value="1045" />
+    <option name="x" value="-11" />
+    <option name="y" value="-11" />
+    <option name="width" value="1943" />
+    <option name="height" value="1043" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -133,7 +135,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -180,7 +182,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/code/dataFrame.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\li\Documents\01_Code\02_Python\python-Pandas\code\DataFrame\dataFrame.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -212,19 +214,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2567" y="-376" width="2062" height="1126" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.33636364" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5019516" side_tool="true" type="SLIDING" weight="0.41580757" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4980484" visible="true" weight="0.39130434" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4980484" weight="0.4570273" />
       <window_info anchor="bottom" id="Version Control" order="4" />
-      <window_info anchor="bottom" id="Python Console" order="5" weight="0.33838382" />
+      <window_info anchor="bottom" id="Python Console" order="5" weight="0.33771485" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49951172" weight="0.30808082" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.46038863" visible="true" weight="0.09031936" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.46038863" visible="true" weight="0.09131736" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="right" auto_hide="true" id="Database" order="1" sideWeight="0.5156951" type="SLIDING" weight="0.20507812" />
-      <window_info anchor="right" content_ui="combo" x="-1074" y="-231" width="502" height="468" id="SciView" order="0" sideWeight="0.8704319" visible="true" weight="0.36926147" />
-      <window_info anchor="right" id="Structure" order="5" sideWeight="0.1295681" side_tool="true" visible="true" weight="0.36926147" />
+      <window_info anchor="right" content_ui="combo" x="-1074" y="-231" width="502" height="468" id="SciView" order="0" sideWeight="0.91102123" visible="true" weight="0.36926147" />
+      <window_info anchor="right" id="Structure" order="5" sideWeight="0.08897877" side_tool="true" visible="true" weight="0.36926147" />
       <window_info anchor="bottom" x="-2560" y="-369" width="2048" height="1102" id="Debug" order="3" sideWeight="0.49658203" weight="0.38624874" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
@@ -299,6 +302,26 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/code/dataFrame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17000">
+          <caret line="1002" column="7" selection-start-line="1002" selection-start-column="7" selection-end-line="1002" selection-end-column="7" />
+          <folding>
+            <element signature="e#176#195#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/dataFrame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17000">
+          <caret line="1002" column="7" selection-start-line="1002" selection-start-column="7" selection-end-line="1002" selection-end-column="7" />
+          <folding>
+            <element signature="e#176#195#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/code/dataFrame.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13906">
@@ -602,8 +625,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/code/dataFrame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="996" lean-forward="true" selection-start-line="996" selection-end-line="996" />
+        <state relative-caret-position="270">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
             <element signature="e#176#195#0" expanded="true" />
           </folding>
