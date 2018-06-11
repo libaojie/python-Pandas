@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f17c7ecd-9ab7-4e56-b22c-a56d3c3d1328" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/python-Pandas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python-Pandas.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/dataframe/get_df.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/dataframe/get_df.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,8 +32,8 @@
       <file leaf-file-name="get_df.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code/dataframe/get_df.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+            <state relative-caret-position="-41">
+              <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -265,12 +263,12 @@
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.46038863" visible="true" weight="0.19140625" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.33636364" />
       <window_info anchor="bottom" id="Event Log" internal_type="SLIDING" order="9" sideWeight="0.5019516" side_tool="true" type="SLIDING" weight="0.41580757" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4980484" visible="true" weight="0.40064102" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4980484" visible="true" weight="0.4278846" />
       <window_info anchor="bottom" id="Version Control" order="4" />
       <window_info anchor="bottom" id="Python Console" order="5" weight="0.33771485" />
       <window_info anchor="right" id="Structure" order="5" sideWeight="0.08897877" side_tool="true" visible="true" weight="0.125" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49951172" weight="0.30808082" />
-      <window_info anchor="bottom" x="-2560" y="-369" width="2048" height="1102" id="Debug" order="3" sideWeight="0.49658203" weight="0.31410256" />
+      <window_info anchor="bottom" x="-2560" y="-369" width="2048" height="1102" id="Debug" order="3" sideWeight="0.49658203" weight="0.42147437" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -298,7 +296,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/code/dataframe/get_df.py</url>
-          <line>61</line>
+          <line>96</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
@@ -460,8 +458,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/code/dataframe/get_df.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+        <state relative-caret-position="-41">
+          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
         </state>
       </provider>
     </entry>
