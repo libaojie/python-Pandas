@@ -214,16 +214,17 @@ def add():
     print('\n--------------------------------------')
     print(df1.add(df2, fill_value=0))
     print('\n+--------------------------------------')
+    print(df1 + df2)
 
 
 def append():
-    df1 = pd.DataFrame([[1, 2, 3, 4], [10, 23, 3, 4], [9, 107, 11, 12]],
+    df1 = pd.DataFrame([[1, NaN, 3], [NaN, 10, NaN], [9, 107, 11]],
                        index=['00', '01', '02'],
-                       columns=['a', 'b', 'c', 'd'])
+                       columns=['a', 'b', 'c'])
 
-    df2 = pd.DataFrame([[3, 2, 3, 4], [1, 3, 3, 4], [9, 10, 114, 12]],
+    df2 = pd.DataFrame([[3, 2, 3], [1, NaN, 3], [9, 10, NaN]],
                        index=['00', '01', '03'],
-                       columns=['a', 'b', 'c', 'd'])
+                       columns=['a', 'b', 'd'])
     print('\ndf1-----------------------------------')
     print(df1)
     print('\ndf2-----------------------------------')
@@ -231,13 +232,19 @@ def append():
     print('\nadd-----------------------------------')
     print(df1.add(df2))
     print('\nadd--------------------------------------')
-    print(df1.add(df2, fill_value=0))
+    print(df1.add(df2, fill_value=1))
     print('\n+--------------------------------------')
     print(df1 + df2)
     print('\nappend--------------------------------------')
     print(df1.append(df2))
     print('\nappend--------------------------------------')
     print(df1.append(df2, ignore_index=True))
+    print('\nconcat--------------------------------------')
+    print(pd.concat([df1, df2]))
+    print('\nconcat--------------------------------------')
+    print(pd.concat([df1, df2], axis=1))
+    print('\nupdate--------------------------------------')
+    print(df1.update(df2))
 
 
 def concat():
@@ -729,21 +736,23 @@ def groupby():
                       index=['00', '01', '02'],
                       columns=['a', 'b', 'c', 'd'])
     print(df)
-    print('\n-------------------------------------')
-    # print(df.groupby(by='a').count())
+    # print('\n-------------------------------------')
+    # print(df.groupby('a').count())
     # print('\n-------------------------------------')
     # print(df.groupby(by='a').mean())
     # print('\n-------------------------------------')
-    # print(df.groupby(by=['a', 'b', 'c', 'd']).count())
+    # print(df.groupby(by=['a', 'b'])['d'].count())
     # print('\n-------------------------------------')
-    # print(df.groupby(by=['a', 'b', 'c'])['d'].mean())
-    # print('\n统计数量-------------------------------------')
-    # col = df.columns.tolist()
-    # df['count'] = 1
-    # df = df.groupby(col).count()
+    # print(df.groupby(by=['a', 'b'])['c', 'd'].mean())
+    # # print('\n统计数量-------------------------------------')
+    col = df.columns.tolist()
+    df['count'] = 1
+    df = df.groupby(col).count()
+    # 拆解index
+    print(df.reset_index())
     # print(df)
-    # print('\n拆解index-------------------------------------')
-    # print(df.reset_index())
+    # # print('\n拆解index-------------------------------------')
+    #
 
 
 def shape():
@@ -838,10 +847,10 @@ def keys():
     print('\nkeys-------------------------------------')
     print(type(df.keys))
     print(df.keys)
-    print('\niteritems-------------------------------------')
-    print(type(df.iteritems))
-    for i in df.iteritems:
-        print(i)
+    # print('\niteritems-------------------------------------')
+    # print(type(df.iteritems))
+    # for i in df.iteritems:
+    #     print(i)
 
 
 def empty():
@@ -1013,6 +1022,7 @@ def math1():
 
     print('\n求累加-------------------------------------')
     print(df.cumsum())
+    print(df.cumsum(axis=1))
 
     print('\n求最大值所在行-------------------------------------')
     print(df.idxmax())
@@ -1030,9 +1040,15 @@ def math2():
     print(df.count())
     print('\n-------------------------------------')
     print(df.count(axis=1))
+    print('\nnunique-------------------------------------')
+    print(df.nunique())
+    print('\nnunique-------------------------------------')
+    print(df.nunique(axis=1))
     print('\n单列去重-------------------------------------')
+    print(type(df['a'].unique()))
     print(df['a'].unique())
     print('\n单列统计数量-------------------------------------')
+    print(type(df['a'].value_counts()))
     print(df['a'].value_counts())
 
 
@@ -1135,6 +1151,7 @@ def combine():
     print('\n-------------------------------------')
     print(df2)
     print('\n-------------------------------------')
+    # print(df1.combine(df2, lambda s1, s2: s1 if s1.sum() < s2.sum() else s2))
     print(df1.combine(df2, lambda s1, s2: s1 if s1.sum() < s2.sum() else s2))
 
 
@@ -1235,6 +1252,24 @@ def join():
     print(df1.join(df2.set_index('key'), on='key'))
 
 
+def nunique1():
+    # df = pd.DataFrame({'A': [1, 2, 3], 'B': [1, 1, 1]})
+    # print('\ndf-------------------------------------')
+    # print(df)
+    # print('\n逐列统计不重复项数量-------------------------------------')
+    # print(df.nunique())
+    # print('\n逐行统计不重复项数量-------------------------------------')
+    # print(df.nunique(axis=1))
+
+    df = pd.DataFrame({'A': [1, NaN, 3], 'B': [1, 1, 1]})
+    print('\ndf-------------------------------------')
+    print(df)
+    print('\n逐列统计非空数量-------------------------------------')
+    print(df.count())
+    print('\n逐行统计非空数量-------------------------------------')
+    print(df.count(axis=1))
+
+
 def nunique():
     df = pd.DataFrame([['a0', 'b0', 'c0', 'd0'], ['a1', 'b0', 'c1', 'd1'], ['a2', 'b2', 'c0', 'd2']],
                       index=['00', '01', '02'],
@@ -1247,6 +1282,26 @@ def nunique():
     print(df.count())
     print('\nmode-------------------------------------')
     print(df.mode())
+
+
+def merge2():
+    df1 = pd.DataFrame([[1, 2, 3], [10, 11, 12], [100, 111, 121]], index=['row1', 'row2', 'row3'],
+                       columns=['col1', 'col2', 'col3'])
+    df2 = pd.DataFrame([[1, 2, 3], [10, 11, 13], [100, 111, 121]], index=['row1', 'row2', 'row4'],
+                       columns=['col1', 'col2', 'col3'])
+    print('\ndf1-------------------------------------')
+    print(df1)
+    print('\ndf2-------------------------------------')
+    print(df2)
+    print('\n交集-------------------------------------')
+    df3 = pd.merge(df1, df2, how='inner')
+    print(df3)
+    print('\n追加-------------------------------------')
+    df4 = df1.append(df3)
+    print(df4)
+    print('\n去重-------------------------------------')
+    df5 = df4.drop_duplicates(keep=False)
+    print(df5)
 
 
 def merge1():
@@ -1314,9 +1369,11 @@ def merge_asof():
 
 def run():
     print('\n---------------------------------------------------------------------------------------------------------')
-    merge_asof()
+    # nunique1()
+    # merge_asof()
     # merge_ordered()
     # merge1()
+    # merge2()
     # nunique()
     # join()
     # applymap()
@@ -1338,7 +1395,7 @@ def run():
     # items()
 
     # math1()
-    # math2()
+    math2()
 
     # transform()
     # filter()
